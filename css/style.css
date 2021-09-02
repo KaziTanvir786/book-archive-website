@@ -1,0 +1,9 @@
+#result-message, #no-result-message, #empty-text-message, #error-message{
+    display: none;
+}
+img{
+    height: 350px;
+}
+#spinner{
+    display: none;
+}
