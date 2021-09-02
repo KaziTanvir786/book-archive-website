@@ -50,7 +50,7 @@ const loadBook = async () => {
             const url = `https://openlibrary.org/search.json?q=${searchText}`;
             const res = await fetch(url);
             const data = await res.json();
-            displaySearchResults(data.docs);
+            displaySearchResults(data.numFound, data.docs, searchText);
         }
         //if error occurs, showing error message
         catch (error) {
@@ -67,7 +67,7 @@ const loadBook = async () => {
 }
 
 //function for displaying results on UI
-const displaySearchResults = books => {
+const displaySearchResults = (totalFound, books, searchText) => {
     //checking whether any search result found or not
     if (books.length === 0) {
         //if no result found, showing message
@@ -78,7 +78,7 @@ const displaySearchResults = books => {
     else {
         //if found, showing the number of results found
         resultMessage.innerHTML = `
-            <h6 class="text-center"> Total ${books.length} results have been found.</h6>
+            <h6 class="text-center"> Total ${totalFound} results found for "${searchText}".</h6>
         `;
         resultMessage.style.display = "block";
         //looping the array to access each results individually
