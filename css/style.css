@@ -1,9 +1,13 @@
-#result-message, #no-result-message, #empty-text-message, #error-message{
+/* default styles */
+#result-message, #no-result-message, #empty-text-message, #error-message, #spinner{
     display: none;
 }
 img{
-    height: 350px;
+    height: 330px;
 }
-#spinner{
-    display: none;
+.card-text{
+    margin-top: 10px;
+    height: 250px;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
