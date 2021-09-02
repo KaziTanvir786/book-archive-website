@@ -24,7 +24,7 @@
         <div class="input-group mb-3 w-50 mx-auto">
             <input id="search-field" type="text" class="form-control" placeholder="Search the book you want..."
                 aria-label="Search the book you want..." aria-describedby="button-addon2">
-            <button onclick="loadBook()" class="btn btn-outline-secondary" type="button" id="search-button"><i
+            <button onclick="loadBook()" class="btn btn-outline-success" type="button" id="search-button"><i
                     class="fas fa-search"></i>
                 Search</button>
         </div>
@@ -37,14 +37,14 @@
         <!-- spinner -->
         <section id="spinner">
             <div class="d-flex justify-content-center" style="height: 250px">
-                <div class="spinner-border text-success my-auto" style="width: 4rem; height: 4rem;" role="status">
+                <div class="spinner-grow text-success my-auto" style="width: 4rem; height: 4rem;" role="status">
 
                 </div>
             </div>
         </section>
 
         <!-- message section -->
-        <section class="container-fluid">
+        <section>
             <div id="result-message" class="alert alert-info w-50 mx-auto py-2" role="alert">
             </div>
             <div id="no-result-message" class="alert alert-danger w-50 mx-auto py-2" role="alert">

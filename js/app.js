@@ -34,17 +34,18 @@ const loadBook = async () => {
     if (searchText.length === 0) {
         //if empty, show warning message
         emptyTextMessage.style.display = "block";
+        toggleSpinner("none");
+
     }
-    //otherwise load data
     else {
         //resetting the search box
         clearFields();
 
+        //showing spinner
+        toggleSpinner("block");
+
         //trying to load data from api
         try {
-            //showing spinner
-            toggleSpinner("block");
-
             //fetching data
             const url = `http://openlibrary.org/search.json?q=${searchText}`;
             const res = await fetch(url);
@@ -60,7 +61,7 @@ const loadBook = async () => {
             toggleSpinner("none");
 
             //showing error message
-            errorMessage.style.display = "block"
+            errorMessage.style.display = "block";
         }
     }
 }
@@ -71,6 +72,8 @@ const displaySearchResults = books => {
     if (books.length === 0) {
         //if no result found, showing message
         noResultMessage.style.display = "block";
+        //showing spinner
+        toggleSpinner("none");
     }
     else {
         //if found, showing the number of results found
@@ -87,7 +90,7 @@ const displaySearchResults = books => {
 
             //checking whether author name is present or not
             if (book.author_name === undefined) {
-                authorName = 'No author found'
+                authorName = 'No author found <br>'
             }
             else {
                 book.author_name.forEach(name => {
@@ -97,7 +100,7 @@ const displaySearchResults = books => {
 
             //checking whether publisher present or not
             if (book.publisher === undefined) {
-                publisherName = 'No publisher found'
+                publisherName = 'No publisher found <br>'
             }
             else {
                 book.publisher.forEach(name => {
@@ -125,8 +128,8 @@ const displaySearchResults = books => {
             const div = document.createElement('div');
             div.classList.add('col');
             div.innerHTML = `
-            <div class="card h-100 shadow-lg">
-                <img src=${coverUrl} class="card-img-top w-75 mx-auto mt-5" alt="Book image">
+            <div class="card h-100">
+                <img src=${coverUrl} class="card-img-top w-50 mx-auto mt-5" alt="Book image">
                 <div class="card-body">
                     <h5 class="card-title text-success">${book.title} <hr> </h5>
                     <p class="card-text">

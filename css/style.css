@@ -3,11 +3,31 @@
     display: none;
 }
 img{
-    height: 330px;
+    height: 250px;
+}
+p{
+    font-size: small;
+}
+/* card style */
+.card{
+    box-shadow: 5px 5px 10px rgba(128, 128, 128, 0.418);
 }
 .card-text{
     margin-top: 10px;
-    height: 250px;
+    height: 180px;
     overflow-x: hidden;
     overflow-y: scroll;
+}
+/* card scrollbar styles */
+.card-text::-webkit-scrollbar {
+    width: 10px;
+}
+  
+.card-text::-webkit-scrollbar-track {
+    background: rgb(255, 255, 255);
+}
+  
+.card-text::-webkit-scrollbar-thumb {
+    background-color: rgb(177, 177, 177);
+    border-radius: 20px;
 }
