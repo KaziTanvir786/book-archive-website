@@ -47,7 +47,7 @@ const loadBook = async () => {
         //trying to load data from api
         try {
             //fetching data
-            const url = `http://openlibrary.org/search.json?q=${searchText}`;
+            const url = `https://openlibrary.org/search.json?q=${searchText}`;
             const res = await fetch(url);
             const data = await res.json();
             displaySearchResults(data.docs);
