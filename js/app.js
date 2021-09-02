@@ -71,6 +71,9 @@ const displaySearchResults = (totalFound, books, searchText) => {
     //checking whether any search result found or not
     if (books.length === 0) {
         //if no result found, showing message
+        noResultMessage.innerHTML = `
+        <h6 class="text-center">No result found for "${searchText}"</h6>
+        `;
         noResultMessage.style.display = "block";
         //showing spinner
         toggleSpinner("none");
@@ -78,7 +81,7 @@ const displaySearchResults = (totalFound, books, searchText) => {
     else {
         //if found, showing the number of results found
         resultMessage.innerHTML = `
-            <h6 class="text-center"> Total ${totalFound} results found for "${searchText}".</h6>
+            <h6 class="text-center"> Total ${totalFound} results found for "${searchText}"</h6>
         `;
         resultMessage.style.display = "block";
         //looping the array to access each results individually
